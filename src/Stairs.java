@@ -15,7 +15,7 @@ public class Stairs {
 //        }
 //    }
 public static void main(String[] args) {
-    int steps = 5;
+    int steps = 7;
     for (int x = 0; x < steps; x++) {
         System.out.format(((steps == (x + 1)) ? "" : ("%"
                 + ((steps - x - 1) * 5) + "s"))

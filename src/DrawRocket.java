@@ -1,7 +1,12 @@
+import java.util.*;
 public class DrawRocket {
-    public static final int SIZE = 3;
+    public static int SIZE;
+
 
     public static void main(String[] args) {
+       Scanner input = new Scanner(System.in);
+       System.out.println(" Give me a number");
+       SIZE = input.nextInt();
         drawCone();
         drawDivider();
         drawTopHalf();
