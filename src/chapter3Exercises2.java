@@ -10,7 +10,9 @@ public class chapter3Exercises2 {
         {
             System.out.print(str.charAt(i));
         }
-
-        //
     }
+
+
+
+
 }

@@ -19,19 +19,19 @@ public class TestingPackages {
         lastWord =s3. substring(indexNum+1, len-1); //beginning is included, the end is excluded
         System.out.println(lastWord);*/
 
-      Scanner input = new Scanner(System.in);
+//      Scanner input = new Scanner(System.in);
        /*
       System.out.print(" PLease enter your name:");
       String name = input.next(); //this ones takes only oen word
         System.out.println(name);
         name=input.next();*/
-        System.out.print("Please enter your name:");
-       String name = input.nextLine();
-       System.out.println(name);
-
-       System.out.println("How many games do you want to play");
-       int games = input.nextInt();
-       System.out.println("Your number is "+ games);
+//        System.out.print("Please enter your name:");
+//       String name = input.nextLine();
+//       System.out.println(name);
+//
+//       System.out.println("How many games do you want to play");
+//       int games = input.nextInt();
+//       System.out.println("Your number is "+ games);
 
     }
 }
