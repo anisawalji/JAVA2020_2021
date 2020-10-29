@@ -23,6 +23,17 @@ public class weatherAverage {
                 count++;
             }
         }
+        for(int i=0; i < days; i++){
+            int x=i+1;
+            temp [i] = temp[i + 1];
+
+            if (i == days-2){
+                System.out.println("YEAHH");
+                System.out.println("What is the temp on day" + x+1);
+                temp [i]= scan.nextInt();
+            }
+        }
+
        System.out.print(count);
         System.out.printf("Average temp %.1f\n", average );
         System.out.println(count + "days above average");
