@@ -13,6 +13,13 @@ public class Calender {
         date(days, Sun);
         top();
     }
+//       System.out.println();
+//        for(int i=1; i <35; i++);
+//        if(<Sun){
+//            Sun-=1
+//    }
+
+
     public static void dayName(){
         System.out.print(" Sun      Mon     Tue     Wed     Thu     Fri     Sat ");
         System.out.println();
@@ -32,7 +39,9 @@ public class Calender {
                         if (num <= days)
                             System.out.print(padded(num, 4));
                         System.out.print("  ");
-                            if (num == days+1)
+                            if (num >= days+1)
+                                System.out.print("    ");
+                            if(num == days + 1)
                                 num = 0;
                                 System.out.print("");
                     }
@@ -46,8 +55,10 @@ public class Calender {
                 s=" " + s;
             }
             return s;
-
         }
+
+
+
 
 }
 
