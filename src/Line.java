@@ -26,8 +26,8 @@ public class Line {
     }
 
     //10
-    public double getSlope() {
-       double slope =(getp2().getY()-getp1().getY());
-       return slope;
-    }
+//    public double getSlope() {
+////       double slope =(getp2().getY()-getp1().getY());
+////       return slope;
+//    }
 }
