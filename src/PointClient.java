@@ -5,6 +5,7 @@ this one will have the main method
  */
 public class PointClient {
         public static void main(String[] args) {
+
             // create two Point objects
             point p1 = new point(7, 2);
             point p2 = new point(4, 3);
@@ -21,5 +22,9 @@ public class PointClient {
             // print the points again
             System.out.println("p1 is " + p1);
             System.out.println("p2 is " + p2);
+            System.out.println(p1);
+            point p3 = new point(-3, 1);
+            System.out.println(p3);
         }
-    }
+        }
+
