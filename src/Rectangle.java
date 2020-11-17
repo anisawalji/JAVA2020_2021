@@ -75,23 +75,5 @@ public class Rectangle {
         Rectangle union = new Rectangle(x1, y1, width1, height1);
         return union;
     }
-
-    public Rectangle intersection(Rectangle rect2) {
-        int x2 = x + width;
-        int x4 = rect2.x + rect2.width;
-        int y1 = y - height;
-        int y3 = rect2.y - rect2.height;
-        int xL = Math.max(x, rect2.x);
-        int xR = Math.min(x2, x4);
-        if (xR <= xL)
-            return null;
-        else {
-            int yT = Math.max(y1, y3);
-            int yB = Math.min(y, rect2.y);
-            if (yB <= yT)
-                return new Rectangle(xL, yB, 0, 0);
-            else
-                return new Rectangle(xL, yB, xR - xL, yB - yT);
-        }
-    }
 }
+
