@@ -2,6 +2,33 @@
 //It has no main method
 //it is used only to identify the object or create the object and its beha
 //public class point {
+//  //arrays w objects
+//  Point[] puntos;
+//  puntos=new Point[3];
+//  puntos[0]=new Point();
+//  puntos[1]=new Point(2,5);
+//  puntos[2]=new Point(5,3);
+//
+//  double avergae=Point.xAvg(puntos);
+//
+//  //this would be in client
+//    public static void xAvg(Point[] other){
+//        double avg=0;
+//        for (int i =0; i< other.length; i++){
+//            avg +=other[i].GetX();
+//        }
+//        avg=avg/other.lenth;
+//
+//    }
+//  System.out.printf("The avergae is %.2f", average);
+//
+//
+//
+//
+//
+//
+//
+//
 //    public int x;
 //    public int y;
 //    // constructs a new point at the origin, (0, 0)
@@ -232,4 +259,4 @@
 ////        }
 ////    }
 //
-
+//
