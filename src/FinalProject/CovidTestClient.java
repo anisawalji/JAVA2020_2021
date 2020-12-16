@@ -5,7 +5,7 @@ import java.util.*;
 public class CovidTestClient {
     public static Scanner input = new Scanner(System.in);
     public CovidTestObject patient = new CovidTestObject();
-    public static CovidTestObject [] Patient;
+    public static CovidTestObject [] Patient = new CovidTestObject[20];
     public static int count;
 
     public static void main(String[] args) {
@@ -29,11 +29,14 @@ public class CovidTestClient {
             answer = scan.nextInt();
             switch (answer) {
                 case 1:
-                    askinfo();
+                    try {
+                        askinfo();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     questions();
                     age();
                     location();
-                    Patient();
                     break;
                 case 2:
                     location();
@@ -61,11 +64,13 @@ public class CovidTestClient {
             }while(answer < 7);
         }
 
-    private static void Patient() {
-    }
+    public static void askinfo () throws FileNotFoundException{
+        System.out.println("here");
+                File file = new File("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt");
+                Scanner scan = new Scanner(file);
+                Patient(scan);
 
-    public static void askinfo () {
-                Patient();
+                System.out.println(count);
                 System.out.print("Please enter your first name: ");
                 String firstname = input.nextLine();
                 System.out.print("Please enter your last name: ");
@@ -78,7 +83,8 @@ public class CovidTestClient {
                 int age = input.nextInt();
                 System.out.print("Welcome, " + firstname + "! Do you think you may have COVID 19? ");
                 String think = input.next();
-                Patient[count]=new CovidTestObject(firstname, lastname, phone, zipcode, age);
+                Patient[count+1]=new CovidTestObject(firstname, lastname, phone, zipcode, age);
+                System.out.println(Patient[count+1].toString());
 
             }
 
@@ -119,10 +125,7 @@ public class CovidTestClient {
                 String poop = scan.nextLine();
             }
             public static void age () {
-                Scanner input = new Scanner(System.in);
-                int age;
-                System.out.println("Enter your age");
-                age = input.nextInt();
+                int age = Patient[count+1].getAge();
 
                 if (age <= 45) {
                     System.out.println("If you do not have any health issues, you are not high risk");
@@ -135,10 +138,10 @@ public class CovidTestClient {
             public static void location () {
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Do you want to get tested for Covid?");
-                String input = scan.nextLine();
+                String input = scan.next();
                 if (input.equalsIgnoreCase("yes")) {
                     System.out.println("What is your zipcode?");
-                    String zipcode = scan.nextLine();
+                    String zipcode = scan.next();
                     System.out.print("Here is a link to find testing centers near you: http://google.com/maps/search/test+center+near+" + zipcode + " ");
                 }
             }
@@ -147,11 +150,13 @@ public class CovidTestClient {
         System.out.print("https://health.mil/News/Articles/2020/05/22/COVID-19-lifestyle-tips-to-stay-healthy-during-the-pandemic");
             }
 
-    public static void Patient(String[] args) throws FileNotFoundException {
-        Scanner scan = new Scanner("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt");
+    public static void Patient(Scanner scan) {
         count = 0;
+        System.out.println("i am here");
         while (scan.hasNextLine()) {
-            String line = input.nextLine();
+
+            String line = scan.nextLine();
+
             Scanner mini = new Scanner(line);
             while (mini.hasNext()) {
                 String firstname = mini.next();
@@ -159,19 +164,24 @@ public class CovidTestClient {
                 String number = mini.next();
                 int age = mini.nextInt();
                 String zipcode = mini.next();
-                Patient[count] = new CovidTestObject(firstname, lastname, number, zipcode,age);
-                count ++;
-                System.out.println(count);
+                Patient[count] = new CovidTestObject(firstname, lastname, zipcode, number,age);
             }
+            count ++;
+            System.out.println(count);
+            System.out.println(Patient[count-1].toString());
+            try {
+                writeOnFile();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            System.out.println(count);
         }
     }
     public static void writeOnFile()throws FileNotFoundException{
-        PrintStream out = new PrintStream(new File("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt"));
+        PrintStream fileOut = new PrintStream(new File("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt"));
         for(int i =0; i < Patient.length; i++) {
-            String line = Patient[i].toString();
-            System.out.println(line);
-//            out(line);
-
+            String line = Patient[count-1].toString();
+            fileOut.append(line);
             }
         }
 

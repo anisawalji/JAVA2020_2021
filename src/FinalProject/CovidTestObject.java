@@ -18,6 +18,25 @@ public class CovidTestObject {
             age = age1;
 
     }
+    public String getfirstname(){
+        return firstname;
+    }
+    public String getLastnamename(){
+        return lastname;
+    }
+    public String getzipcode(){
+        return zipcode;
+    }
+    public String getnumber(){
+        return number;
+    }
+    public int getAge(){
+        return age;
+    }
+
+
+
+
     public String toString(){
         return firstname + " " + lastname + " " + zipcode + " "+ number + " " + age;
     }
