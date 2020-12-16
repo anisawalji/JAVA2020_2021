@@ -6,17 +6,21 @@ public class CovidTestObject {
 
     private String firstname;
     private String lastname;
-    private int zipcode;
+    private String zipcode;
     private String number;
     private int age;
 
-    public CovidTestObject(String firstname, String lastname, String zipcode, String number, String age) {
-            firstname = firstname;
-            lastname = lastname;
-            zipcode = zipcode;
+    public CovidTestObject(String firstname1, String lastname1, String zipcode1, String number1, int age1) {
+            firstname = firstname1;
+            lastname = lastname1;
+            zipcode = zipcode1;
+            number=number1;
+            age = age1;
 
     }
-
+    public String toString(){
+        return firstname + " " + lastname + " " + zipcode + " "+ number + " " + age;
+    }
     public CovidTestObject() {
 
     }

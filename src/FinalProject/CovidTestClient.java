@@ -6,6 +6,7 @@ public class CovidTestClient {
     public static Scanner input = new Scanner(System.in);
     public CovidTestObject patient = new CovidTestObject();
     public static CovidTestObject [] Patient;
+    public static int count;
 
     public static void main(String[] args) {
         menu();
@@ -24,7 +25,6 @@ public class CovidTestClient {
             System.out.println("* 3. Find out if you are high risk       *");
             System.out.println("* 4. COVID information                   *");
             System.out.println("* 5. Goodbye                             *");
-            System.out.println("* 6. Exit                                *");
             System.out.println("******************************************");
             answer = scan.nextInt();
             switch (answer) {
@@ -46,12 +46,15 @@ public class CovidTestClient {
                     break;
                 case 5:
                     goodbye();
-                    break;
-                case 6:
                     System.out.println ("Exiting the program... thank you");
+                    try {
+                        writeOnFile();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
                     System.exit(0);	// Exits the program
+
                     break;
-                case 7:
                 default:
                     System.out.print("This is not a valid Menu Option! Please Select Another.");
                     }
@@ -62,6 +65,7 @@ public class CovidTestClient {
     }
 
     public static void askinfo () {
+                Patient();
                 System.out.print("Please enter your first name: ");
                 String firstname = input.nextLine();
                 System.out.print("Please enter your last name: ");
@@ -70,14 +74,12 @@ public class CovidTestClient {
                 String phone = input.nextLine();
                 System.out.print("What is your zipcode?:");
                 String zipcode = input.nextLine();
+                System.out.print("How old are you?:");
+                int age = input.nextInt();
                 System.out.print("Welcome, " + firstname + "! Do you think you may have COVID 19? ");
-                String think = input.nextLine();
+                String think = input.next();
+                Patient[count]=new CovidTestObject(firstname, lastname, phone, zipcode, age);
 
-//        questions();
-//        location();
-//        age();
-////enter info w file. object, patients
-//        goodbye();
             }
 
             public static void questions () {
@@ -147,7 +149,7 @@ public class CovidTestClient {
 
     public static void Patient(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt");
-        int count = 0;
+        count = 0;
         while (scan.hasNextLine()) {
             String line = input.nextLine();
             Scanner mini = new Scanner(line);
@@ -155,13 +157,24 @@ public class CovidTestClient {
                 String firstname = mini.next();
                 String lastname = mini.next();
                 String number = mini.next();
-                String age = mini.next();
+                int age = mini.nextInt();
                 String zipcode = mini.next();
-                Patient[count] = new CovidTestObject(firstname, lastname, number, age, zipcode);
+                Patient[count] = new CovidTestObject(firstname, lastname, number, zipcode,age);
                 count ++;
+                System.out.println(count);
             }
         }
     }
+    public static void writeOnFile()throws FileNotFoundException{
+        PrintStream out = new PrintStream(new File("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt"));
+        for(int i =0; i < Patient.length; i++) {
+            String line = Patient[i].toString();
+            System.out.println(line);
+//            out(line);
+
+            }
+        }
+
             //here add something to add all info to the file
             public static void goodbye () {
                 Scanner scan = new Scanner(System.in);
