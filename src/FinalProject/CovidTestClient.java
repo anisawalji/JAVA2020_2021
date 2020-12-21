@@ -1,6 +1,8 @@
 package FinalProject;
 import java.io.*;
 import java.util.*;
+//This file is for a user who is the patient. They can see if they think they have COVID, and find more info about COVID and find test centers near them. THey can also fine out if they are high risk
+
 
 public class CovidTestClient {
     public static Scanner input = new Scanner(System.in);
@@ -12,7 +14,7 @@ public class CovidTestClient {
         menu();
     }
 
-    public static void menu() {
+    public static void menu() { //This is the menu, and will ask the user what they want o do in the program
         Scanner scan = new Scanner(System.in);
         int answer;
         do {
@@ -64,7 +66,7 @@ public class CovidTestClient {
             }while(answer < 7);
         }
 
-    public static void askinfo () throws FileNotFoundException{
+    public static void askinfo () throws FileNotFoundException{ //this  method is all the info that will go into the file
         System.out.println("here");
                 File file = new File("C:\\Users\\WaljiA24\\IdeaProjects\\JAVA2020_2021\\src\\FinalProject\\healthyinfo.txt");
                 Scanner scan = new Scanner(file);
@@ -88,7 +90,7 @@ public class CovidTestClient {
 
             }
 
-            public static void questions () {
+            public static void questions () { //This is a method that will aks you what symptoms you have
                 System.out.print("Please answer the following questions. All questions should be answered with 'Yes' or 'No'");
                 String a = input.next();
 
@@ -124,7 +126,7 @@ public class CovidTestClient {
                 System.out.print("Have you had any diarrhea?:");
                 String poop = scan.nextLine();
             }
-            public static void age () {
+            public static void age () { //This method
                 int age = Patient[count+1].getAge();
 
                 if (age <= 45) {

@@ -2,6 +2,7 @@ package FinalProject;
 import java.io.PrintStream;
 import java.util.*;
 import java.util.Scanner;
+
 public class CovidTestObject {
 
     private String firstname;
